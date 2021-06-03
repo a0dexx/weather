@@ -14,7 +14,7 @@ const initialState: WeatherStateInterface = {
   data: [],
 };
 
-const weatherReducer = createReducer(
+export const weatherReducer = createReducer(
   initialState,
   on(
     getWeatherAction,
@@ -41,7 +41,6 @@ const weatherReducer = createReducer(
     })
   ),
    on(routerNavigationAction, (): WeatherStateInterface => initialState),
-
 );
 
 export function reducers(state: WeatherStateInterface|undefined, action: Action) {

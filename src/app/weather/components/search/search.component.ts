@@ -1,28 +1,30 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { WeatherService } from '../../weather.service';
 import { Store } from '@ngrx/store';
-import { getWeatherAction } from '../../store/actions/weather';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
-
-import {NgForm} from '@angular/forms';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html'
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
   // IMPLEMENT ANY INPUT OR OUTPUT YOU MIGHT NEED
-
-  constructor(    private store: Store,private weatherService: WeatherService) { }
-
-  @Output() city = new EventEmitter<string>();
-
-
-  search(f: NgForm) {
-    console.log(f.value.city);
-    this.city.emit(f.value.city);
-    f.reset();
+  constructor(private fb: FormBuilder) {
   }
 
+  // @Output() city = new EventEmitter<string>();
+  @Output() city = new EventEmitter<any>();
 
+  form: FormGroup
 
+  ngOnInit() {
+    this.form = this.fb.group({
+      city: ['', [Validators.required]]
+    });
+  }
+
+  search() {
+    this.city.emit(this.form.value.city);
+    this.form.reset();
+  }
 }

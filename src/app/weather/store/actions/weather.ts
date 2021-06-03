@@ -1,10 +1,7 @@
-// import { Action } from '@ngrx/store';
-
 // TO BE IMPLEMENTED IF YOU DECIDE TO USE NG-RX
 import { createAction, props } from '@ngrx/store';
 import { Weather } from '../../../model/weather';
 import { HttpErrorResponse } from '@angular/common/http';
-
 
 export enum ActionTypes {
   GET_WEATHER= '[Weather] Get country feed',

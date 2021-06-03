@@ -1,16 +1,11 @@
-<form #f="ngForm" (ngSubmit)="search(f)" novalidate class="form-inline mb-5">
+<form  (ngSubmit)="search()"  [formGroup]="form" class="form-inline mb-5">
   <div class="form-group col-8 pl-0">
     <input class="form-control mt-3 col"
            id="city"
-           name="city"
            placeholder="City"
            type="text"
-           required
-           ngModel
+           formControlName="city"
     >
   </div>
-<!--  <button class="btn-search btn btn-primary mt-3 col-4" type="button" (click)="search(citykkk.value)">Search old</button>-->
-  <button class="btn-search btn btn-primary mt-3 col-4" type="submit"  [disabled]="f.invalid">Search</button>
-
-<!--  <app-results></app-results>-->
+  <button class="btn-search btn btn-primary mt-3 col-4" type="submit" >Search</button>
 </form>

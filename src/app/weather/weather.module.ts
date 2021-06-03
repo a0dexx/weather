@@ -4,7 +4,7 @@ import { WeatherContainer } from './weather.container';
 import { WeatherService } from './weather.service';
 import { SearchComponent } from './components/search/search.component';
 import { ResultsComponent } from './components/results/results.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/reducers/weather';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -20,7 +20,8 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     StoreModule.forRoot({ weather: reducers }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([GetWeatherEffect]),
-    StoreRouterConnectingModule.forRoot()
+    StoreRouterConnectingModule.forRoot(),
+    ReactiveFormsModule
   ],
   declarations: [
     SearchComponent,

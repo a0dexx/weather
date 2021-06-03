@@ -12,7 +12,6 @@ import { HttpErrorResponse } from '@angular/common/http';
   template: `
     <app-search (city)="citySearch($event)"></app-search>
     <app-results [weather]="results$" [error]="error$" [loading]="loading$"></app-results>
-
   `
 })
 export class WeatherContainer implements OnInit {
@@ -27,7 +26,7 @@ export class WeatherContainer implements OnInit {
   ngOnInit() {
     this.results$ = this.store.pipe(select(dataSelector));
     this.error$ = this.store.pipe(select(errorSelector));
-    this.loading$ = this.store.pipe(select(isLoadingSelector))
+    this.loading$ = this.store.pipe(select(isLoadingSelector));
   }
 
   citySearch(searchString: string) {

@@ -8,26 +8,13 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.scss']
 })
-export class ResultsComponent implements OnChanges, OnInit {
+export class ResultsComponent  {
   constructor() { }
 
   @Input() weather: Observable<Weather[]> ;
   @Input() error: Observable<HttpErrorResponse>;
   @Input() loading: Observable<boolean>
 
-  ngOnInit(){
-
-
-  }
-
-
-
-
-  ngOnChanges() {
-    // IMPLEMENT ANYTHING YOU BEKIEVE YOU MIGHT NEED HERE
-    console.log('hiu')
-    console.log(this.weather);
-  }
 }
 
 

@@ -1,9 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { AppStateInterface } from '../appState.interface';
-
 import { WeatherStateInterface } from '../weatherState.interface';
-
-
 
 export const countriesSelector = createFeatureSelector<
   AppStateInterface,
