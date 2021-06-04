@@ -3,7 +3,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { WeatherContainer } from './weather.container';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
 import { ActionTypes, getWeatherAction, getWeatherSuccessAction } from './store/actions/weather';
 
@@ -87,34 +87,26 @@ describe('WeatherContainer', () => {
     });
   });
 
-  // it('SHOULD create a getWeatherFaileureAction action', () => {
-  //   const mockError  = of({
-  //     "headers": {
-  //       "normalizedNames": {},
-  //       "lazyUpdate": null
-  //     },
-  //     "status": 400,
-  //     "statusText": "Bad Request",
-  //     "url": "https://api.openweathermap.org/data/2.5/forecast?q=&cnt=8&units=metric&appid=010721642521f31b0fbc8c3831d45951",
-  //     "ok": false,
-  //     "name": "HttpErrorResponse",
-  //     "message": "Http failure response for https://api.openweathermap.org/data/2.5/forecast?q=&cnt=8&units=metric&appid=010721642521f31b0fbc8c3831d45951: 400 Bad Request",
-  //     "error": {
-  //       "cod": "400",
-  //       "message": "Nothing to geocode"
-  //     }
-  //   })
-  //   ;
-  //
-  //
-  //   const action = Actions.getWeatherFailureAction({ errors: mockError });
-  //   const result = Reducers.weatherReducer(initialState,action);
-  //   expect(result).toEqual({
-  //     ...initialState,
-  //     isLoading: false,
-  //     error: mockError
-  //   });
-  // });
+  it('SHOULD create a getWeatherFaileureAction action', () => {
+    const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
+    const mockError =new HttpErrorResponse ({
+      headers: headers,
+      status: 400,
+      statusText: "Bad Request",
+      url: "https://api.openweathermap.org/data/2.5/forecast?q=&cnt=8&units=metric&appid=010721642521f31b0fbc8c3831d45951",
+      error: {
+        "cod": "400",
+        "message": "Nothing to geocode"
+      }});
+
+    const action = Actions.getWeatherFailureAction({ errors: mockError });
+    const result = Reducers.weatherReducer(initialState,action);
+    expect(result).toEqual({
+      ...initialState,
+      isLoading: false,
+      error: mockError
+    });
+  });
 
 
 });
