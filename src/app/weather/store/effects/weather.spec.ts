@@ -6,7 +6,6 @@ import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { getWeatherAction, getWeatherSuccessAction, getWeatherFailureAction } from '../actions/weather';
 import { TestScheduler } from 'rxjs/testing';
 import {WeatherService} from '../../weather.service';
-import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
 describe('GetWeatherEffect', () => {
   const initialState = { shows: [] };
@@ -55,29 +54,4 @@ describe('GetWeatherEffect', () => {
       });
     });
   });
-  //
-  // describe('getWeather$', () => {
-  //   it('should handle appLoaded and return a getWeatherFailureAction action', () => {
-  //     const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
-  //     const mockError =new HttpErrorResponse ({
-  //         headers: headers,
-  //         status: 400,
-  //         statusText: "Bad Request",
-  //         url: "https://api.openweathermap.org/data/2.5/forecast?q=&cnt=8&units=metric&appid=010721642521f31b0fbc8c3831d45951",
-  //         error: {
-  //           "cod": "400",
-  //           "message": "Nothing to geocode"
-  //         }});
-  //     const action = getWeatherAction({city:'kkk'});
-  //     const outcome = getWeatherFailureAction({ errors: mockError });
-  //
-  //     testScheduler.run(({ hot, cold, expectObservable }) => {
-  //       actions = hot('-a', { a: action });
-  //       const response = cold('-b|', { b: mockError });
-  //       weatherService.searchWeatherForCity.and.returnValue(response);
-  //       expectObservable(effects.getWeather$).toBe('--b', { b: outcome });
-  //     });
-  //   });
-  // });
-
 });

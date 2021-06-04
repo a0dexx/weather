@@ -1,10 +1,6 @@
 import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { SearchComponent } from './search.component';
-
-import Spy = jasmine.Spy;
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { WeatherService } from '../../weather.service';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';

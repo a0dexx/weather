@@ -1,6 +1,4 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import { WeatherService } from '../../weather.service';
-import { Store } from '@ngrx/store';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
@@ -12,9 +10,7 @@ export class SearchComponent implements OnInit {
   constructor(private fb: FormBuilder) {
   }
 
-  // @Output() city = new EventEmitter<string>();
-  @Output() city = new EventEmitter<any>();
-
+  @Output() city = new EventEmitter<string>();
   form: FormGroup
 
   ngOnInit() {

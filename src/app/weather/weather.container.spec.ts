@@ -4,13 +4,8 @@ import { WeatherContainer } from './weather.container';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-
-import { ActionTypes, getWeatherAction, getWeatherSuccessAction } from './store/actions/weather';
-
-
 import * as Actions from './store/actions/weather';
 import * as Reducers from  './store/reducers/weather';
-import { of } from 'rxjs';
 
 describe('WeatherContainer', () => {
   let component: WeatherContainer;

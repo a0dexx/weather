@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { countriesSelector, dataSelector, errorSelector, isLoadingSelector } from './store/selectors/weather';
-import { WeatherStateInterface } from './store/weatherState.interface';
+import { dataSelector, errorSelector, isLoadingSelector } from './store/selectors/weather';
 import { Weather } from '../model/weather';
-import { getWeatherAction, getWeatherFailureAction } from './store/actions/weather';
+import { getWeatherAction } from './store/actions/weather';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({

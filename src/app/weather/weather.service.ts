@@ -1,12 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { City, Weather } from '../model/weather';
-
-
-
-
+import {  Weather } from '../model/weather';
 
 @Injectable()
 export class WeatherService {
@@ -31,8 +26,5 @@ export class WeatherService {
     const queryUrl = `${this.url}${urlParams}`;
 
     return this.http.get<Weather>(queryUrl);
-      // .pipe(catchError((error: any) => Observable.throw(error.json())));
   }
-
-
 }

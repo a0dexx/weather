@@ -13,10 +13,12 @@ export const getWeatherAction = createAction(
   ActionTypes.GET_WEATHER,
   props<{ city: string }>()
 );
+
 export const getWeatherSuccessAction = createAction(
   ActionTypes.GET_WEATHER_SUCCESS,
   props<{ weather: Weather }>()
 );
+
 export const getWeatherFailureAction = createAction(
   ActionTypes.GET_WEATHER_FAILURE,
   props<{errors: HttpErrorResponse}>()
