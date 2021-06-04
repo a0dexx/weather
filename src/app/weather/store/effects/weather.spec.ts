@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import {GetWeatherEffect} from './weather';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { getWeatherAction, getWeatherSuccessAction, getWeatherFailureAction, ActionTypes } from '../actions/weather';
+import { getWeatherAction, getWeatherSuccessAction, getWeatherFailureAction } from '../actions/weather';
 import { TestScheduler } from 'rxjs/testing';
 import {WeatherService} from '../../weather.service';
 import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';

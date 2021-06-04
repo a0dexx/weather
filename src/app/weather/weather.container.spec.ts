@@ -18,8 +18,6 @@ describe('WeatherContainer', () => {
 
   let store: MockStore;
   let httpMock: HttpTestingController;
-
-  // let httpClient: HttpClient;
   let httpTestingController: HttpTestingController;
 
   const initialState = {
@@ -66,8 +64,7 @@ describe('WeatherContainer', () => {
     expect(component.loading$).toBeTruthy();
   });
 
-
-  it('SHOULD create a getWeatherAction action', () => {
+  it('should create a getWeatherAction action', () => {
     const action = Actions.getWeatherAction({city:'london'});
     const result = Reducers.weatherReducer(initialState,action);
     expect(result).toEqual({
@@ -107,6 +104,4 @@ describe('WeatherContainer', () => {
       error: mockError
     });
   });
-
-
 });

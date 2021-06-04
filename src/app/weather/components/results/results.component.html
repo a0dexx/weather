@@ -21,7 +21,7 @@
 
 <div *ngIf="(error|async) as errorResponse">
 
-  <pre>{{error|async|json}}</pre>
+<!--  <pre>{{error|async|json}}</pre>-->
   <ul class="alert alert-danger" role="alert">
     <li> Error: {{ errorResponse.error.cod }}</li>
     <li> Message: {{ errorResponse.error.message }}</li>
